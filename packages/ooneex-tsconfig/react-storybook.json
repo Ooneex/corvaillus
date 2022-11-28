@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
+  },
+  "display": "React Storybook",
+  "extends": "./react-library.json"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@ooneex/helper",
+  "version": "1.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/mod.js",
+  "module": "./dist/mod.mjs",
+  "types": "./dist/mod.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup mod.ts --format esm,cjs --dts",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsup mod.ts --format esm,cjs --watch --dts",
+    "lint": "deno lint {src,tests} && deno fmt --check {src,tests}",
+    "lint:fix": "deno fmt {src,tests}",
+    "test": "deno test -A --unstable tests",
+    "test:watch": "deno test --watch -A --unstable tests"
+  },
+  "devDependencies": {
+    "tsup": "^6.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

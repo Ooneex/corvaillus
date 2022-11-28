@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build --no-daemon",
+    "clean": "turbo run clean --no-daemon && rm -rf node_modules",
+    "dev": "turbo run dev --no-cache --parallel --continue --no-daemon",
+    "lint": "turbo run lint --parallel --no-daemon",
+    "lint:fix": "turbo run lint:fix --parallel --no-daemon",
+    "package:fix": "sort-package-json 'package.json' '{packages,apps}/*/package.json'",
+    "package:lint": "sort-package-json 'package.json' '{packages,apps}/*/package.json' --check",
+    "test": "turbo run test --parallel --no-daemon",
+    "test:watch": "turbo run test:watch --parallel --no-daemon"
+  },
+  "devDependencies": {
+    "eslint-config-ooneex": "workspace:*",
+    "sort-package-json": "^2.1.0",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@7.15.0"
+}
