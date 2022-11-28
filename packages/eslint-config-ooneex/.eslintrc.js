@@ -14,7 +14,6 @@ module.exports = {
     {
       "files": ["*.json"],
       "rules": {
-        "@typescript-eslint/comma-dangle": "off",
         "semi": "off",
       },
     },
@@ -41,13 +40,6 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "exports": "never",
-      "functions": "never",
-      "imports": "never",
-      "objects": "always-multiline",
-    }],
     "@typescript-eslint/explicit-function-return-type": ["error", {
       "allowExpressions": true,
     }],
