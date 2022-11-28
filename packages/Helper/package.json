@@ -10,9 +10,9 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "deno bundle mod.ts dist/mod.js",
+    "build": "mkdir -p dist && deno bundle ./mod.ts dist/mod.js",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "dev": "deno bundle mod.ts dist/mod.js --watch",
+    "dev": "mkdir -p dist && deno bundle ./mod.ts ./dist/mod.js --watch",
     "lint": "deno lint {src,tests} && deno fmt --check {src,tests}",
     "lint:fix": "deno fmt {src,tests}",
     "test": "deno test -A --unstable tests",
