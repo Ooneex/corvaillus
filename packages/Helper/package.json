@@ -10,16 +10,13 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup mod.ts --format esm,cjs --dts",
+    "build": "deno bundle mod.ts dist/mod.js",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "dev": "tsup mod.ts --format esm,cjs --watch --dts",
+    "dev": "deno bundle mod.ts dist/mod.js --watch",
     "lint": "deno lint {src,tests} && deno fmt --check {src,tests}",
     "lint:fix": "deno fmt {src,tests}",
     "test": "deno test -A --unstable tests",
     "test:watch": "deno test --watch -A --unstable tests"
-  },
-  "devDependencies": {
-    "tsup": "^6.5.0"
   },
   "publishConfig": {
     "access": "public"

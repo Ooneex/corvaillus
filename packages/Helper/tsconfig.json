@@ -1,4 +1,0 @@
-{
-  "extends": "@ooneex/tsconfig/base.json",
-  "include": ["src"]
-}
