@@ -12,7 +12,6 @@
     "test:watch": "turbo run test:watch --parallel --no-daemon"
   },
   "devDependencies": {
-    "eslint-config-ooneex": "workspace:*",
     "sort-package-json": "^2.1.0",
     "turbo": "latest"
   },
