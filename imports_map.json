@@ -12,11 +12,12 @@
     "testing/bdd": "https://deno.land/std@0.144.0/testing/bdd.ts",
     "testing/mock": "https://deno.land/std@0.144.0/testing/mock.ts",
 
+    "@ooneex/app": "./packages/App/mod.ts",
+    "@ooneex/collection": "./packages/Collection/mod.ts",
     "@ooneex/helper": "./packages/Helper/mod.ts",
+    "@ooneex/http": "./packages/Http/mod.ts",
     "@ooneex/path": "./packages/path/mod",
     "@ooneex/translation": "./packages/Translation/mod.ts",
-    "@ooneex/http": "./packages/Http/mod.ts",
-    "@ooneex/app": "./packages/App/mod.ts",
-    "@ooneex/collection": "./packages/Collection/mod.ts"
+    "@ooneex/parser": "./packages/Parser/mod.ts"
   }
 }

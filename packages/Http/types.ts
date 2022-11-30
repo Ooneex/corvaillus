@@ -19,7 +19,7 @@ export type HttpMethodType =
   | "POST"
   | "PUT";
 
-export const HttpMethods: HttpMethodType[] = [
+export const HttpDefaultMethods: HttpMethodType[] = [
   "DELETE",
   "GET",
   "HEAD",
@@ -37,7 +37,7 @@ export type HttpProtocolType =
   | "socket"
   | "tcp";
 
-export const HttpProtocols: HttpProtocolType[] = [
+export const HttpDefaultProtocols: HttpProtocolType[] = [
   "https",
   "http",
   "socket",
