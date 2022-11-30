@@ -1,4 +1,4 @@
-import { LocaleType } from "@ooneex/translation";
+import { LocaleType } from "./deps.ts";
 
 export type AppLocaleType = LocaleType;
 export type AppEnvType =

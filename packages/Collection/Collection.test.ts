@@ -1,5 +1,4 @@
-import { assertEquals } from "testing/asserts";
-import { describe, it } from "testing/bdd";
+import { assertEquals, describe, it } from "../../deps.ts";
 import { Collection } from "./mod.ts";
 
 type ValueType = { name: string; price: number };

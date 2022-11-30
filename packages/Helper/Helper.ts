@@ -200,7 +200,6 @@ export class Helper {
    *
    * @param text - The string to convert.
    */
-
   public static camelize(text: string): string {
     return Helper.kebabize(text)
       .replace(/\s(.)/g, ($1) => $1.toUpperCase())

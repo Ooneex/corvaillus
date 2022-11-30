@@ -1,4 +1,4 @@
-import { assertEquals } from "testing/asserts";
+import { assertEquals } from "../../../deps.ts";
 import { MatchedRoute } from "../mod.ts";
 import { Route } from "./Route.ts";
 

@@ -1,5 +1,9 @@
-import { assertArrayIncludes, assertEquals } from "testing/asserts";
-import { describe, it } from "testing/bdd";
+import {
+  assertArrayIncludes,
+  assertEquals,
+  describe,
+  it,
+} from "../../../deps.ts";
 import { YamlParser } from "./mod.ts";
 
 const yamlData = {

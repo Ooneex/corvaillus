@@ -1,5 +1,4 @@
-import { assertEquals } from "testing/asserts";
-import { describe, it } from "testing/bdd";
+import { assertEquals, describe, it } from "../../../deps.ts";
 import { MatchedRoute } from "../mod.ts";
 
 describe("MatchedRoute", () => {

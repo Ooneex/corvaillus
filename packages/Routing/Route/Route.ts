@@ -1,19 +1,15 @@
+import { RouteChecker } from "../Checker/RouteChecker.ts";
 import {
   AppDefaultEnv,
   AppEnvType,
   AppLocaleType,
   AppRoleType,
   AppVersionType,
-} from "@ooneex/app";
-
-import {
   HttpDefaultMethods,
   HttpDefaultProtocols,
   HttpMethodType,
   HttpProtocolType,
-} from "@ooneex/http";
-
-import { RouteChecker } from "../Checker/RouteChecker.ts";
+} from "../deps.ts";
 import { ActionType, IMatchedRoute, IRoute, RouteType } from "../types.ts";
 
 export class Route implements IRoute {

@@ -1,11 +1,12 @@
+import { RouteCollection } from "./Collection.ts";
 import {
   AppEnvType,
   AppLocaleType,
   AppRoleType,
   AppVersionType,
-} from "@ooneex/app";
-import { HttpMethodType, HttpProtocolType } from "@ooneex/http";
-import { RouteCollection } from "./Collection.ts";
+  HttpMethodType,
+  HttpProtocolType,
+} from "./deps.ts";
 
 export type ActionType = `${string}.tsx` | `${string}.ts`;
 

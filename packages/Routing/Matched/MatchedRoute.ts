@@ -4,14 +4,14 @@ import {
   MatchedRouteType,
 } from "../types.ts";
 
-import { HttpMethodType, HttpProtocolType } from "@ooneex/http";
-
 import {
   AppEnvType,
   AppLocaleType,
   AppRoleType,
   AppVersionType,
-} from "@ooneex/app";
+  HttpMethodType,
+  HttpProtocolType,
+} from "../deps.ts";
 
 export class MatchedRoute implements IMatchedRoute {
   private route: MatchedRouteType;

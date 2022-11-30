@@ -1,25 +1,24 @@
 import {
-  AppDefaultEnv,
-  AppEnvType,
-  AppLocaleType,
-  AppRoleType,
-  AppVersionType,
-} from "@ooneex/app";
-import {
-  HttpDefaultMethods,
-  HttpDefaultProtocols,
-  HttpMethodType,
-} from "@ooneex/http";
-import { YamlParser } from "@ooneex/parser";
-import {
   assertArrayIncludes,
   assertEquals,
   assertInstanceOf,
   assertMatch,
   assertNotMatch,
   assertObjectMatch,
-} from "testing/asserts";
-import { describe, it } from "testing/bdd";
+  describe,
+  it,
+} from "../../../deps.ts";
+import {
+  AppDefaultEnv,
+  AppEnvType,
+  AppLocaleType,
+  AppRoleType,
+  AppVersionType,
+  HttpDefaultMethods,
+  HttpDefaultProtocols,
+  HttpMethodType,
+  YamlParser,
+} from "../deps.ts";
 import { ActionType, Route, RouteConstraintType, Router } from "../mod.ts";
 
 const __dirname = new URL(".", import.meta.url).pathname;

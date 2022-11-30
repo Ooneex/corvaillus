@@ -3,9 +3,10 @@ import {
   AppLocaleType,
   AppRoleType,
   AppVersionType,
-} from "@ooneex/app";
+  HttpMethodType,
+  HttpProtocolType,
+} from "../deps.ts";
 
-import { HttpMethodType, HttpProtocolType } from "@ooneex/http";
 import {
   IMatchedRoute,
   IRoute,

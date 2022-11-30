@@ -1,5 +1,4 @@
-import { Helper } from "@ooneex/helper";
-import { parse } from "./deps.ts";
+import { Helper, parse } from "../deps.ts";
 import { IYamlParser } from "./types.ts";
 import { YamlParseFailedException } from "./YamlParseFailedException.ts";
 

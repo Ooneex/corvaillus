@@ -1,4 +1,4 @@
-import { Helper } from "@ooneex/helper";
+import { Helper } from "./deps.ts";
 import { CollectionKeyType, ICollection } from "./types.ts";
 
 export class Collection<K extends CollectionKeyType, V>

@@ -3,9 +3,10 @@ import {
   AppLocaleType,
   AppRoleType,
   AppVersionType,
-} from "@ooneex/app";
-import { Helper } from "@ooneex/helper";
-import { HttpMethodType, HttpProtocolType } from "@ooneex/http";
+  Helper,
+  HttpMethodType,
+  HttpProtocolType,
+} from "../deps.ts";
 
 import { RouteCollection } from "../Collection.ts";
 import { Route } from "../Route/Route.ts";
