@@ -1,24 +1,11 @@
 {
   "name": "@ooneex/path",
   "version": "1.0.0",
-  "license": "MIT",
-  "sideEffects": false,
-  "main": "./dist/mod.js",
-  "module": "./dist/mod.mjs",
-  "types": "./dist/mod.d.ts",
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
-    "build": "mkdir -p dist && deno bundle ./mod.ts dist/mod.js",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "dev": "mkdir -p dist && deno bundle ./mod.ts ./dist/mod.js --watch",
-    "lint": "deno lint ./ && deno fmt --check ./",
-    "lint:fix": "deno fmt ./",
-    "test": "deno test -A --unstable ./",
-    "test:watch": "deno test --watch -A --unstable ./"
-  },
-  "publishConfig": {
-    "access": "public"
+    "lint": "deno lint . && deno fmt --check .",
+    "lint:fix": "deno fmt .",
+    "test": "deno test -A --unstable .",
+    "test:watch": "deno test --watch -A --unstable ."
   }
 }
