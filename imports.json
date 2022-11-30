@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "testing/asserts": "https://deno.land/std@0.144.0/testing/asserts.ts",
-    "testing/bdd": "https://deno.land/std@0.144.0/testing/bdd.ts",
-    "testing/mock": "https://deno.land/std@0.144.0/testing/mock.ts"
-  }
-}

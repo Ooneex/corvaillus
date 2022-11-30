@@ -8,7 +8,7 @@ export class Helper {
     return this.getByKey(object, key) !== undefined;
   }
 
-  public static getByKey<T>(object: unknown, key: unknown): T | undefined {
+  public static getByKey<T>(object: unknown, key: string): T | undefined {
     const keys = (key as string).split(".");
 
     for (let i = 0; i < keys.length; i++) {
