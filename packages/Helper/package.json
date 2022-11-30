@@ -15,8 +15,8 @@
     "dev": "mkdir -p dist && deno bundle ./mod.ts ./dist/mod.js --watch",
     "lint": "deno lint {src,tests} && deno fmt --check {src,tests}",
     "lint:fix": "deno fmt {src,tests}",
-    "test": "deno test -A --unstable tests",
-    "test:watch": "deno test --watch -A --unstable tests"
+    "test": "deno test -A --unstable .",
+    "test:watch": "deno test --watch -A --unstable ."
   },
   "publishConfig": {
     "access": "public"
