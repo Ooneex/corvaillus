@@ -14,6 +14,7 @@
 
     "@ooneex/helper": "./packages/Helper/mod.ts",
     "@ooneex/path": "./packages/path/mod",
-    "@ooneex/translation": "./packages/Translation/mod.ts"
+    "@ooneex/translation": "./packages/Translation/mod.ts",
+    "@ooneex/http": "./packages/Http/mod.ts"
   }
 }
