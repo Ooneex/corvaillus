@@ -1,14 +1,7 @@
 import { LocaleType } from "./deps.ts";
 
 export type AppLocaleType = LocaleType;
-export type AppEnvType =
-  | "dev"
-  | "staging"
-  | "pre-prod"
-  | "prod"
-  | "test"
-  | "demo"
-  | `${string}`;
+
 export type AppRoleType =
   | "ROLE_GUEST"
   | "ROLE_USER"
@@ -17,11 +10,14 @@ export type AppRoleType =
   | `ROLE_${Uppercase<string>}`;
 export type AppVersionType = `${number}.${number}.${number}`;
 
-export const AppDefaultEnv: AppEnvType[] = [
-  "dev",
-  "pre-prod",
-  "prod",
-  "staging",
-  "test",
-  "demo",
-];
+export type AppDirectoryType = Record<
+  | "components"
+  | "config"
+  | "handlers"
+  | "islands"
+  | "middlewares"
+  | "routes"
+  | "static"
+  | "views",
+  string
+>;
