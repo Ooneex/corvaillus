@@ -83,8 +83,20 @@ export class Collection<K extends CollectionKeyType, V>
     return this;
   }
 
+  /**
+   * Get all data from the collection
+   */
   public getData(): { [K in CollectionKeyType]: V } {
     return this.data;
+  }
+
+  /**
+   * Set new data for the collection
+   */
+  public setData(data: { [K in CollectionKeyType]: V }): this {
+    this.data = data;
+
+    return this;
   }
 
   /**
