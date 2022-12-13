@@ -1,0 +1,8 @@
+homepage:
+  path: "/"
+  method: ["GET"]
+  env: ["prod", "dev", "test", "demo"]
+  component: "Homepage"
+  handler: "Homepage"
+  middleware: ["One", "two", "three"]
+  description: "Route description"

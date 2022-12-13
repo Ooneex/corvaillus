@@ -1,0 +1,9 @@
+directories:
+  components: "components"
+  config: "config"
+  handlers: "handlers"
+  islands: "islands"
+  middlewares: "middlewares"
+  routes: "routes"
+  static: "static"
+  views: "views"
