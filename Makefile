@@ -13,11 +13,11 @@ lint:
 lint.fix:
 	pnpm package:fix
 	pnpm run lint:fix
+lint.watch:
+	pnpm run lint:watch
 clean:
 	pnpm run clean
 install:
 	pnpm install
 cache:
 	npm cache clean --force && yarn cache clean --all && pnpm store prune && pnpm prune && rm -rf $(pn store path) && rm -rf node_modules
-cache.reload:
-	deno task run cache:reload

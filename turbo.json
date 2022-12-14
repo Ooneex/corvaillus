@@ -2,21 +2,32 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"]
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
     },
     "test": {
-      "outputs": ["coverage/**"],
+      "outputs": [
+        "coverage/**"
+      ],
       "dependsOn": []
     },
     "test:watch": {
-      "outputs": ["coverage/**"],
+      "outputs": [
+        "coverage/**"
+      ],
       "dependsOn": []
     },
     "lint": {
       "outputs": []
     },
     "lint:fix": {
+      "outputs": []
+    },
+    "lint:watch": {
       "outputs": []
     },
     "dev": {

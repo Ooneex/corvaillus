@@ -10,7 +10,7 @@ import {
 
 import { RouteCollection } from "../Collection.ts";
 import { Route } from "../Route/Route.ts";
-import { ActionType, IRoute, IRouter } from "../types.ts";
+import { IRoute, IRouter } from "../types.ts";
 
 export class Router implements IRouter {
   private routeCollection = new RouteCollection();
@@ -18,70 +18,102 @@ export class Router implements IRouter {
   public get(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["GET"], action);
+    return this.register(name, path, ["GET"], component, handler, middleware);
   }
 
   public post(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["POST"], action);
+    return this.register(name, path, ["POST"], component, handler, middleware);
   }
 
   public put(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["PUT"], action);
+    return this.register(name, path, ["PUT"], component, handler, middleware);
   }
 
   public patch(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["PATCH"], action);
+    return this.register(name, path, ["PATCH"], component, handler, middleware);
   }
 
   public delete(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["DELETE"], action);
+    return this.register(
+      name,
+      path,
+      ["DELETE"],
+      component,
+      handler,
+      middleware,
+    );
   }
 
   public head(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["HEAD"], action);
+    return this.register(name, path, ["HEAD"], component, handler, middleware);
   }
 
   public options(
     name: string,
     path: string,
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
-    return this.register(name, path, ["OPTIONS"], action);
+    return this.register(
+      name,
+      path,
+      ["OPTIONS"],
+      component,
+      handler,
+      middleware,
+    );
   }
 
   public register(
     name: string,
     path: string,
     methods: HttpMethodType[],
-    action: ActionType,
+    component?: string,
+    handler?: string,
+    middleware?: string[],
   ): IRoute {
     const route = new Route({
       name,
       path,
-      action,
       method: methods,
+      component,
+      handler,
+      middleware,
     });
 
     this.routeCollection.add(name, route);
@@ -103,8 +135,14 @@ export class Router implements IRouter {
 
       const route = new Route({ name, path });
       route
-        .action(
-          Helper.getByKey<ActionType>(data[name], "action"),
+        .component(
+          Helper.getByKey<string>(data[name], "component"),
+        )
+        .handler(
+          Helper.getByKey<string>(data[name], "handler"),
+        )
+        .middleware(
+          Helper.getByKey<string[]>(data[name], "middleware"),
         )
         .method(Helper.getByKey<HttpMethodType[]>(data[name], "method"))
         .protocol(Helper.getByKey<HttpProtocolType[]>(data[name], "protocol"))

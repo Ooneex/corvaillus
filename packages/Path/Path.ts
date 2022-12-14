@@ -54,14 +54,14 @@ export class Path {
   /**
    * Return the relative path from `from` to `to` based on current working directory.
    */
-  public static relative(from: string, to: string): unknown {
+  public static relative(from: string, to: string): string {
     return relative(from, to);
   }
 
   /**
    * Resolves `pathSegments` into an absolute path.
    */
-  public static resolve(...paths: string[]): unknown {
+  public static resolve(...paths: string[]): string {
     return resolve(...paths);
   }
   /**

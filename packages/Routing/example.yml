@@ -30,7 +30,9 @@ homepage:
   #  locale: ["fr", "en"]
   #  role: ["ROLE_ANON", "ROLE_USER", "ROLES_ADMIN"]
   env: ["prod", "dev", "test", "demo"]
-  action: "Homepage.tsx"
+  handler: "Homepage"
+  component: "Homepage"
+  middleware: ["middleware1", "middleware2"]
 #  version: ["1.2.3", "2.0.0"]
 #  fixture: "Product/ShowFixture"
   description: "Route description"

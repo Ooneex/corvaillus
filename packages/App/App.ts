@@ -1,0 +1,4 @@
+/**
+ * Add default config
+ * - Directories
+ */

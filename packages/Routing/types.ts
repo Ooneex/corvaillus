@@ -8,8 +8,6 @@ import {
   HttpProtocolType,
 } from "./deps.ts";
 
-export type ActionType = `${string}.tsx` | `${string}.ts`;
-
 export type RouteConstraintType = {
   key: string;
   constraint: RegExp;
@@ -26,9 +24,17 @@ export type RouteType = {
    */
   path: string;
   /**
-   * Action to trigger if this route matched
+   * Handler to trigger if this route matched
    */
-  action?: ActionType;
+  handler?: string;
+  /**
+   * Component to render if this route matched
+   */
+  component?: string;
+  /**
+   * Middlewares to trigger if this route matched
+   */
+  middleware?: string[];
   /**
    * Allowed methods for this route
    */
@@ -90,6 +96,13 @@ export type RouteType = {
    * Route description. Used for documentation
    */
   description?: string;
+
+  _details?: {
+    component?: (() => void) | null;
+    handler?: (() => void) | null;
+    middleware?: (() => void)[] | null;
+    file?: string;
+  };
 };
 
 export interface IRoute {
@@ -106,7 +119,9 @@ export interface IRoute {
   // whereUuid(name: string): this;
   // whereIn(name: string, values: string[]): this;
   getDefault(): Record<string, string>;
-  getAction(): ActionType;
+  getHandler(): string | null;
+  getComponent(): string | null;
+  getMiddleware(): string[] | null;
   getMethod(): HttpMethodType[];
   getData<T>(): Record<string, T>;
   getLocale(): AppLocaleType[];

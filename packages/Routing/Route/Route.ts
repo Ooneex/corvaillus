@@ -10,10 +10,10 @@ import {
   HttpMethodType,
   HttpProtocolType,
 } from "../deps.ts";
-import { ActionType, IMatchedRoute, IRoute, RouteType } from "../types.ts";
+import { IMatchedRoute, IRoute, RouteType } from "../types.ts";
 
 export class Route implements IRoute {
-  public static NOT_FOUND_ACTION: ActionType = "NotFoundAction.tsx";
+  public static NOT_FOUND = "NotFound";
   public static DEFAULT_LOCALE: AppLocaleType[] = [];
   private readonly route: RouteType;
 
@@ -24,7 +24,9 @@ export class Route implements IRoute {
       this.route.constraint = [];
     }
 
-    this.action(this.route.action);
+    this.component(this.route.component);
+    this.handler(this.route.handler);
+    this.middleware(this.route.middleware);
     this.method(this.route.method);
     this.protocol(this.route.protocol);
     this.host(this.route.host);
@@ -109,14 +111,34 @@ export class Route implements IRoute {
     return this.route.locale ?? Route.DEFAULT_LOCALE;
   }
 
-  public action(action: ActionType = Route.NOT_FOUND_ACTION): this {
-    this.route.action = action;
+  public component(component: string = Route.NOT_FOUND): this {
+    this.route.component = component;
 
     return this;
   }
 
-  public getAction(): ActionType {
-    return this.route.action ?? Route.NOT_FOUND_ACTION;
+  public getComponent(): string {
+    return this.route.component ?? Route.NOT_FOUND;
+  }
+
+  public handler(handler: string = Route.NOT_FOUND): this {
+    this.route.handler = handler;
+
+    return this;
+  }
+
+  public getHandler(): string {
+    return this.route.handler ?? Route.NOT_FOUND;
+  }
+
+  public middleware(middleware?: string[]): this {
+    this.route.middleware = middleware;
+
+    return this;
+  }
+
+  public getMiddleware(): string[] | null {
+    return this.route.middleware ?? null;
   }
 
   public method(method: HttpMethodType[] = HttpDefaultMethods): this {
