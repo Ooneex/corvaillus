@@ -40,6 +40,8 @@ PORT=8080
     await this.dotEnv.parse(".env.local");
     await this.dotEnv.parse(".env.test.local");
     await this.dotEnv.parse(".env.prod.local");
+
+    Deno.env.set(`OONEEX_APP_ENV`, JSON.stringify(this.dotEnv.getData()));
   }
 
   public getAppEnv(): AppEnvType | null {

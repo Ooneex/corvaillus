@@ -1,13 +1,13 @@
-import { HandlerContext, Handlers, RouteConfig } from "../deps.ts";
+import {HandlerContext, Handlers, RouteConfig} from "../deps.ts";
 
 export const proxyConfig: RouteConfig = {
   routeOverride: "/.*",
 };
 
 const handlerCallback = async (_req: Request, ctx: HandlerContext) => {
-  // ctx.state.hello = EnvConfig;
 
-  const resp = await ctx.render();
+  // Render view if it defined in route definition
+  const resp = await ctx.render(ctx.state);
   // resp.headers.set("X-Custom-Header", "Hello World");
   return resp;
 };

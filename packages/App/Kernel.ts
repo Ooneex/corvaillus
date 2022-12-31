@@ -7,6 +7,8 @@ export class Kernel {
     env.generateEnvFile();
     await env.parse();
 
+    // console.log(manifest);
+
     await start(manifest, {...opts, port: env.getPort() || undefined});
   }
 }

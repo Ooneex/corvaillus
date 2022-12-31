@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable",
+      "deno.ns",
+      "deno.unstable"
+    ]
+  },
+  "importMap": "./imports_map.json",
+  "tasks": {
+    "test": "deno test -A"
+  },
+  "test": {
+    "files": {
+      "exclude": ["Routing/"]
+    }
+  }
+}

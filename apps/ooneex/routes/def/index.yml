@@ -1,7 +1,9 @@
 homepage:
   path: "/"
   method: ["GET"]
-  env: ["prod", "dev", "test", "demo"]
+  env: ["prod", "dev", "test"]
+
+  # Todo: Change to view
   component: "Homepage"
   handler: "Homepage"
   middleware: ["One", "two", "three"]

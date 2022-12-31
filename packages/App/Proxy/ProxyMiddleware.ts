@@ -1,17 +1,21 @@
-import { MiddlewareHandlerContext } from "../deps.ts";
+import {DotEnvValueType, MiddlewareHandlerContext} from "../deps.ts";
+import { env } from "../Env/Env.ts";
+import {IEnv} from "../Env/IEnv.ts";
 
 interface IMiddlewareState {
-  env: unknown;
-  context: MiddlewareHandlerContext;
+  app: {
+    env: IEnv;
+  }
 }
 
 export class ProxyMiddleware {
   public async handler(
     request: Request,
-    context: MiddlewareHandlerContext<IMiddlewareState>,
+    ctx: MiddlewareHandlerContext<IMiddlewareState>,
   ) {
-    // console.log(JSON.parse(localStorage.getItem("EnvConfig") as string));
-
-    return await context.next();
+    const envData: Record<string, DotEnvValueType> = JSON.parse(Deno.env.get("OONEEX_APP_ENV") as string);
+    env.setData(envData);
+    ctx.state.app = {env};
+    return await ctx.next();
   }
 }

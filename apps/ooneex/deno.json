@@ -5,6 +5,7 @@
   },
   "importMap": "./imports_map.json",
   "tasks": {
-    "dev": "deno run -A --watch=static/,routes/ dev.ts"
+    "dev": "deno run -A --watch=static/,routes/ dev.ts",
+    "test": "deno test -A --unstable ."
   }
 }

@@ -3,8 +3,6 @@ dev:
 	pnpm run dev
 build:
 	pnpm run build
-test:
-	pnpm run test
 test.watch:
 	pnpm run test:watch
 lint:
@@ -19,7 +17,18 @@ clean:
 	pnpm run clean
 install:
 	pnpm install
-cache.clean:
-	npm cache clean --force && yarn cache clean --all && pnpm store prune && pnpm prune && rm -rf $(pn store path) && rm -rf node_modules
+
+### => Ooneex app <- ###
 apps.ooneex.dev:
 	cd apps/ooneex && deno task dev
+apps.ooneex.test:
+	cd apps/ooneex && deno task test
+### -> Ooneex app <- ###
+
+### => Packages <- ###
+packages.test:
+	cd packages && deno task test
+### -> Packages <- ###
+
+#cache.clean:
+	#npm cache clean --force && yarn cache clean --all && pnpm store prune && pnpm prune && rm -rf $(pn store path) && rm -rf node_modules

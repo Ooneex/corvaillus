@@ -19,7 +19,7 @@ import {
   HttpMethodType,
   YamlParser,
 } from "../deps.ts";
-import { ActionType, Route, RouteConstraintType, Router } from "../mod.ts";
+import { Route, RouteConstraintType, Router } from "../mod.ts";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
@@ -36,7 +36,6 @@ describe("Http Router", () => {
     assertEquals(route.get("name"), "products_show_create");
     assertEquals(route.get("path"), "/products/:id");
     assertArrayIncludes(route.get<HttpMethodType[]>("method"), ["GET", "POST"]);
-    assertEquals(route.get<ActionType>("action"), action);
 
     route = router.get("products_show", "/products/:id", action);
     assertArrayIncludes(route.get<HttpMethodType[]>("method"), ["GET"]);
@@ -64,7 +63,6 @@ describe("Http Router", () => {
 
   it("Should handle default values", () => {
     const route = new Route({ name: "route_name", path: "/products" });
-    assertEquals(route.get("action"), Route.NOT_FOUND_ACTION);
     assertEquals(route.get("method"), HttpDefaultMethods);
     assertEquals(route.get("protocol"), HttpDefaultProtocols);
     assertEquals(route.get("host"), []);
@@ -88,7 +86,6 @@ describe("Http Router", () => {
     const route = router.findByName("homepage");
     assertInstanceOf(route, Route);
     assertEquals(route?.get("path"), "/products/:id/:name");
-    assertEquals(route?.get("action"), "HomepageAction");
     assertArrayIncludes(route?.get<HttpMethodType[]>("method"), [
       "GET",
       "POST",
