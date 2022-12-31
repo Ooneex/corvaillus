@@ -19,5 +19,5 @@ clean:
 	pnpm run clean
 install:
 	pnpm install
-cache:
+cache.clean:
 	npm cache clean --force && yarn cache clean --all && pnpm store prune && pnpm prune && rm -rf $(pn store path) && rm -rf node_modules

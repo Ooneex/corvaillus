@@ -4,7 +4,6 @@ import { CollectionKeyType, ICollection } from "./types.ts";
 export class Collection<K extends CollectionKeyType, V>
   implements ICollection<K, V> {
   protected data: { [K in CollectionKeyType]: V } = {};
-  // protected size = 0;
 
   public set(value: { [K in CollectionKeyType]: V }): this {
     Object.keys(value).map((key) => {

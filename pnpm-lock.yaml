@@ -10,13 +10,43 @@ importers:
       sort-package-json: 2.1.0
       turbo: 1.6.3
 
-  apps/ruby:
+  apps/ooneex:
+    specifiers: {}
+
+  packages/App:
+    specifiers: {}
+
+  packages/CLI:
+    specifiers: {}
+
+  packages/Collection:
+    specifiers: {}
+
+  packages/Directory:
+    specifiers: {}
+
+  packages/DotEnv:
+    specifiers: {}
+
+  packages/File:
     specifiers: {}
 
   packages/Helper:
     specifiers: {}
 
+  packages/Http:
+    specifiers: {}
+
+  packages/Parser:
+    specifiers: {}
+
   packages/Path:
+    specifiers: {}
+
+  packages/Routing:
+    specifiers: {}
+
+  packages/Translation:
     specifiers: {}
 
 packages:
