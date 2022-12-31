@@ -7,20 +7,30 @@ export class Env implements IEnv {
   private dotEnv: DotEnv = new DotEnv();
 
   public generateEnvFile(): void {
-    const file = new File(".env");
-    if (file.exists()) {
-      return;
-    }
-
-    file.ensure();
-    file.write(`ENV=dev
+    let fileContent = `ENV=dev
 LOCALE=en-us
 COUNTRY="United States"
 VERSION=1.0.0
 SECRET=${crypto.randomUUID()}
 DEBUG=true
-PORT=8000
-`);
+PORT=8080
+`;
+    const file = new File(".env");
+    if (file.exists()) {
+      fileContent = file.read();
+    } else {
+      file.ensure();
+      file.write(fileContent);
+    }
+
+    // Generate .env.local if not exists
+    const localEnvFile = new File(".env.local");
+    if (localEnvFile.exists()) {
+      return;
+    }
+
+    localEnvFile.ensure();
+    localEnvFile.write(fileContent);
   }
 
   public async parse() {
