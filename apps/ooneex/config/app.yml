@@ -7,3 +7,12 @@ directories:
   routes: "routes"
   static: "static"
   views: "views"
+errors:
+  404:
+    view: "errors/_404.tsx"
+    handler: null
+    middleware: null
+  500:
+    view: "errors/_500.tsx"
+    handler: null
+    middleware: null
