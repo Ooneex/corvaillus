@@ -21,3 +21,5 @@ install:
 	pnpm install
 cache.clean:
 	npm cache clean --force && yarn cache clean --all && pnpm store prune && pnpm prune && rm -rf $(pn store path) && rm -rf node_modules
+apps.ooneex.dev:
+	cd apps/ooneex && deno task dev

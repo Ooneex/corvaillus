@@ -3,5 +3,8 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "importMap": "./imports_map.json"
+  "importMap": "./imports_map.json",
+  "tasks": {
+    "dev": "deno run -A --watch=static/,routes/ dev.ts"
+  }
 }
