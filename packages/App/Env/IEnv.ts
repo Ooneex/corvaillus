@@ -3,6 +3,8 @@ import { AppLocaleType } from "../types.ts";
 import { DotEnvValueType } from "../deps.ts";
 
 export interface IEnv {
+  parse(): void;
+
   getAppEnv(): AppEnvType | null;
 
   isDev(): boolean;

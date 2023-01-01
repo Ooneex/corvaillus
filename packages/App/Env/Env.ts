@@ -33,7 +33,7 @@ PORT=8080
     localEnvFile.write(fileContent);
   }
 
-  public async parse() {
+  public async parse(): Promise<void> {
     await this.dotEnv.parse(".env");
     await this.dotEnv.parse(".env.test");
     await this.dotEnv.parse(".env.prod");
