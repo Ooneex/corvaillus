@@ -1,3 +1,7 @@
+import {DotEnvValueType} from "../../DotEnv/mod.ts";
+
+export type AppEnvVarsType = Record<"ENV" | "LOCALE" | "COUNTRY" | "VERSION" | "SECRET" | "DEBUG" | "PORT" | `${Uppercase<string>}`, DotEnvValueType>;
+
 export type AppEnvType =
   | "dev"
   | "prod"

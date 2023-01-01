@@ -1,6 +1,6 @@
-import { DotEnv, DotEnvValueType, File } from "../deps.ts";
+import { DotEnv, File } from "../deps.ts";
 import { IEnv } from "./IEnv.ts";
-import { AppEnvType } from "./types.ts";
+import {AppEnvType, AppEnvVarsType} from "./types.ts";
 import { AppLocaleType, AppVersionType } from "../types.ts";
 
 export class Env implements IEnv {
@@ -40,8 +40,7 @@ PORT=8080
     await this.dotEnv.parse(".env.local");
     await this.dotEnv.parse(".env.test.local");
     await this.dotEnv.parse(".env.prod.local");
-
-    Deno.env.set(`OONEEX_APP_ENV`, JSON.stringify(this.dotEnv.getData()));
+    // Deno.env.set(`OONEEX_APP_ENV`, JSON.stringify(this.dotEnv.getData()));
   }
 
   public getAppEnv(): AppEnvType | null {
@@ -88,11 +87,11 @@ PORT=8080
     return this.dotEnv.get<T>(key);
   }
 
-  public getData(): Record<string, DotEnvValueType> {
-    return this.dotEnv.getData();
+  public getData(): AppEnvVarsType {
+    return this.dotEnv.getData() as AppEnvVarsType;
   }
 
-  public setData(data: Record<string, DotEnvValueType>): void {
+  public setData(data: AppEnvVarsType): void {
     this.dotEnv.setData(data);
   }
 }
