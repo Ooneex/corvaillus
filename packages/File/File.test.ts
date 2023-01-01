@@ -10,11 +10,12 @@ import { File } from "./mod.ts";
 
 describe("File", () => {
   const currentDir = crypto.randomUUID();
-  const file = new File(`__var\\${currentDir}/test.txt`);
+  const tempDir = Deno.makeTempDirSync();
+  const file = new File(`${tempDir}\\${currentDir}/test.txt`);
 
   afterAll(() => {
     try {
-      Deno.removeSync("__var", { recursive: true });
+      Deno.removeSync(tempDir, { recursive: true });
     } catch (e) {
       console.log(e.message);
     }
@@ -23,7 +24,7 @@ describe("File", () => {
   it("path", () => {
     assertEquals(
       file.getPath(),
-      `__var${Path.DS}${currentDir}${Path.DS}test.txt`,
+      `${tempDir}${Path.DS}${currentDir}${Path.DS}test.txt`,
     );
   });
 
@@ -32,7 +33,7 @@ describe("File", () => {
   });
 
   it("directory", () => {
-    assertEquals(file.getDirectory().getPath(), `__var${Path.DS}${currentDir}`);
+    assertEquals(file.getDirectory().getPath(), `${tempDir}${Path.DS}${currentDir}`);
   });
 
   it("extension", () => {
@@ -66,7 +67,7 @@ describe("File", () => {
   });
 
   it("cp", () => {
-    const copiedFile = file.cp(`__var\\${currentDir}/testCopy.txt`);
+    const copiedFile = file.cp(`${tempDir}\\${currentDir}/testCopy.txt`);
     assertEquals(copiedFile.exists(), true);
     assertEquals(file.exists(), true);
   });
@@ -75,30 +76,30 @@ describe("File", () => {
     file.rename("copy.txt");
     assertEquals(
       file.getPath(),
-      `__var${Path.DS}${currentDir}${Path.DS}copy.txt`,
+      `${tempDir}${Path.DS}${currentDir}${Path.DS}copy.txt`,
     );
     assertEquals(file.getName(), "copy.txt");
   });
 
   it("mv", () => {
-    const file = new File(`__var\\${currentDir}/test.txt`);
+    const file = new File(`${tempDir}\\${currentDir}/test.txt`);
     file.ensure();
-    file.mv(`__var\\${currentDir}/newDir`);
+    file.mv(`${tempDir}\\${currentDir}/newDir`);
     assertEquals(
       file.getPath(),
-      `__var${Path.DS}${currentDir}${Path.DS}newDir${Path.DS}test.txt`,
+      `${tempDir}${Path.DS}${currentDir}${Path.DS}newDir${Path.DS}test.txt`,
     );
   });
 
   it("rm", () => {
-    const file = new File(`__var\\${currentDir}/test.txt`);
+    const file = new File(`${tempDir}\\${currentDir}/test.txt`);
     file.ensure();
     file.rm();
     assertEquals(file.exists(), false);
   });
 
   describe("File info", () => {
-    const file = new File(`__var\\${currentDir}/testInfo.txt`);
+    const file = new File(`${tempDir}\\${currentDir}/testInfo.txt`);
     const path = file.getPath();
     file.ensure();
     it("size", () => {

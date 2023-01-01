@@ -9,26 +9,26 @@ import {
 import { File, Path } from "./deps.ts";
 import { Directory, DirectoryException } from "./mod.ts";
 
-// Todo: See how to use Deno.makeTempFileSync()
-
 describe("Directory", () => {
   const currentDir = crypto.randomUUID();
   const copyDir = crypto.randomUUID();
   const moveDir = crypto.randomUUID();
   const renameDir = crypto.randomUUID();
   const infoDir = crypto.randomUUID();
-  const directory = new Directory(`__var\\${currentDir}`);
+  const tempDir = Deno.makeTempDirSync();
+
+  const directory = new Directory(`${tempDir}\\${currentDir}`);
 
   afterAll(() => {
     try {
-      Deno.removeSync("__var", { recursive: true });
+      Deno.removeSync(tempDir, { recursive: true });
     } catch (e) {
       console.log(e.message);
     }
   });
 
   it("path", () => {
-    assertEquals(directory.getPath(), `__var${Path.DS}${currentDir}`);
+    assertEquals(directory.getPath(), `${tempDir}${Path.DS}${currentDir}`);
   });
 
   it("name", () => {
@@ -36,7 +36,7 @@ describe("Directory", () => {
   });
 
   it("directory", () => {
-    assertEquals(directory.getDirectory().getPath(), "__var");
+    assertEquals(directory.getDirectory().getPath(), tempDir);
   });
 
   it("ensure", () => {
@@ -55,12 +55,12 @@ describe("Directory", () => {
     assertEquals(directory.exists(), true);
     assertEquals(
       directory.getPath(),
-      `__var${Path.DS}${currentDir}${Path.DS}foo`,
+      `${tempDir}${Path.DS}${currentDir}${Path.DS}foo`,
     );
     directory.cd("..");
     assertEquals(
       directory.getPath(),
-      `__var${Path.DS}${currentDir}`,
+      `${tempDir}${Path.DS}${currentDir}`,
     );
   });
 
@@ -90,7 +90,7 @@ describe("Directory", () => {
   });
 
   it("cp", () => {
-    const cpDir = directory.cp(`__var\\${copyDir}`);
+    const cpDir = directory.cp(`${tempDir}\\${copyDir}`);
     assertEquals(cpDir.exists(), true);
     assertEquals(directory.exists(), true);
   });
@@ -101,18 +101,18 @@ describe("Directory", () => {
   });
 
   it("mv", () => {
-    const directory = new Directory(`__var\\${currentDir}`);
+    const directory = new Directory(`${tempDir}\\${currentDir}`);
     directory.ensure();
     let result = directory.mv(directory.getPath());
     assertEquals(directory.isEquals(result), true);
-    result = directory.mv(`__var\\${moveDir}`);
+    result = directory.mv(`${tempDir}\\${moveDir}`);
     assertEquals(directory.exists(), false);
     assertEquals(result.exists(), true);
     assertEquals(directory.isEquals(result), false);
   });
 
   it("rename", () => {
-    const directory = new Directory(`__var\\${currentDir}`);
+    const directory = new Directory(`${tempDir}\\${currentDir}`);
     directory.ensure();
     directory.touch("rename.txt", "Rename content.");
     directory.rename(renameDir);
@@ -120,7 +120,7 @@ describe("Directory", () => {
   });
 
   describe("Directory info", () => {
-    const directory = new Directory(`__var\\${infoDir}`);
+    const directory = new Directory(`${tempDir}\\${infoDir}`);
     const path = directory.getPath();
     directory.ensure();
     it("size", () => {

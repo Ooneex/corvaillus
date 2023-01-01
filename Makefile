@@ -3,8 +3,6 @@ dev:
 	pnpm run dev
 build:
 	pnpm run build
-test.watch:
-	pnpm run test:watch
 lint:
 	pnpm package:lint
 	pnpm run lint
@@ -23,11 +21,15 @@ apps.ooneex.dev:
 	cd apps/ooneex && deno task dev
 apps.ooneex.test:
 	cd apps/ooneex && deno task test
+apps.ooneex.test.watch:
+	cd apps/ooneex && deno task test:watch
 ### -> Ooneex app <- ###
 
 ### => Packages <- ###
 packages.test:
 	cd packages && deno task test
+packages.test.watch:
+	cd packages && deno task test:watch
 ### -> Packages <- ###
 
 #cache.clean:

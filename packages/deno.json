@@ -12,7 +12,8 @@
   },
   "importMap": "./imports_map.json",
   "tasks": {
-    "test": "deno test -A"
+    "test": "deno test -A .",
+    "test:watch": "deno test -A --watch ."
   },
   "test": {
     "files": {
