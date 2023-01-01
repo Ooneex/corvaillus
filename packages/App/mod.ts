@@ -16,6 +16,6 @@ export * from "./Env/Env.ts";
 export * from "./Env/IEnv.ts";
 export * from "./Env/types.ts";
 // Proxy
-export * from "./Proxy/ProxyComponent.tsx";
+export * from "./Proxy/ProxyView.tsx";
 export * from "./Proxy/ProxyHandler.ts";
 export * from "./Proxy/ProxyMiddleware.ts";
