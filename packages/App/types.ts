@@ -9,15 +9,3 @@ export type AppRoleType =
   | "ROLE_SUPER_ADMIN"
   | `ROLE_${Uppercase<string>}`;
 export type AppVersionType = `${number}.${number}.${number}`;
-
-export type AppDirectoryType = Record<
-  | "components"
-  | "config"
-  | "handlers"
-  | "islands"
-  | "middlewares"
-  | "routes"
-  | "static"
-  | "views",
-  string
->;
