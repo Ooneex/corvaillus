@@ -4,7 +4,7 @@ import {
   describe,
   it,
 } from "../../../deps.ts";
-import { YamlParser } from "./mod.ts";
+import { YamlParser } from "./YamlParser.ts";
 
 const yamlData = {
   doe: "a deer, a female deer",
