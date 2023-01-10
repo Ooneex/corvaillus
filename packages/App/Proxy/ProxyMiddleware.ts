@@ -1,9 +1,9 @@
-import {MiddlewareHandlerContext} from "../deps.ts";
+import { MiddlewareHandlerContext } from "../deps.ts";
 import { env } from "../Env/Env.ts";
-import {appConfig} from "../Config/AppConfig.ts";
-import {AppDirectoryType} from "../Directory/types.ts";
-import {AppConfigErrorType} from "../Config/types.ts";
-import {AppEnvVarsType} from "../Env/types.ts";
+import { appConfig } from "../Config/AppConfig.ts";
+import { AppDirectoryType } from "../Directory/types.ts";
+import { AppConfigErrorType } from "../Config/types.ts";
+import { AppEnvVarsType } from "../Env/types.ts";
 
 interface IMiddlewareState {
   app: {
@@ -12,7 +12,7 @@ interface IMiddlewareState {
       directories: AppDirectoryType | null;
       errors: AppConfigErrorType | null;
     };
-  }
+  };
 }
 
 export class ProxyMiddleware {
@@ -20,7 +20,6 @@ export class ProxyMiddleware {
     request: Request,
     ctx: MiddlewareHandlerContext<IMiddlewareState>,
   ) {
-
     // Env variables
     // const envData: Record<string, DotEnvValueType> = JSON.parse(Deno.env.get("OONEEX_APP_ENV") as string);
     // env.setData(envData);
@@ -33,8 +32,8 @@ export class ProxyMiddleware {
       env: env.getData(),
       config: {
         directories: appConfig.getDirectories(),
-        errors: appConfig.getErrors()
-      }
+        errors: appConfig.getErrors(),
+      },
     };
 
     return await ctx.next();

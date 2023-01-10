@@ -32,7 +32,7 @@ export class Helper {
     if (object === null) {
       return null;
     }
-    let t = (typeof object);
+    let t = typeof object;
     if (t === "object") {
       // @ts-ignore:
       object = String(object.constructor);

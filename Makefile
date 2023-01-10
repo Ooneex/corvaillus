@@ -16,7 +16,7 @@ clean:
 install:
 	pnpm install
 
-### => Ooneex app <- ###
+### -> Ooneex app <- ###
 apps.ooneex.dev:
 	cd apps/ooneex && deno task dev
 apps.ooneex.test:
@@ -25,11 +25,15 @@ apps.ooneex.test.watch:
 	cd apps/ooneex && deno task test:watch
 ### -> Ooneex app <- ###
 
-### => Packages <- ###
+### -> Packages <- ###
 packages.test:
 	cd packages && deno task test
 packages.test.watch:
 	cd packages && deno task test:watch
+packages.fmt:
+	cd packages && deno task fmt
+packages.lint:
+	cd packages && deno task lint
 ### -> Packages <- ###
 
 #cache.clean:

@@ -1,4 +1,4 @@
-import {PageProps} from "../deps.ts";
+import { PageProps } from "../deps.ts";
 
 export const ProxyView = (Props: PageProps) => {
   // console.log(Props.data.app.env.PORT);

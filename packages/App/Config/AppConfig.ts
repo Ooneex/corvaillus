@@ -1,14 +1,14 @@
-import {IAppConfig} from "./IAppConfig.ts";
-import {YamlParser} from "../../Parser/mod.ts";
-import {File} from "../../File/mod.ts";
-import {AppConfigErrorType, AppConfigType} from "./types.ts";
-import {AppDirectoryType} from "../Directory/types.ts";
+import { IAppConfig } from "./IAppConfig.ts";
+import { YamlParser } from "../../Parser/mod.ts";
+import { File } from "../../File/mod.ts";
+import { AppConfigErrorType, AppConfigType } from "./types.ts";
+import { AppDirectoryType } from "../Directory/types.ts";
 
 export class AppConfig implements IAppConfig {
-    private appConfig: AppConfigType | null = null;
+  private appConfig: AppConfigType | null = null;
 
-    public generateAppConfigFile(): void {
-        const fileContent = `directories:
+  public generateAppConfigFile(): void {
+    const fileContent = `directories:
   components: "components"
   config: "config"
   handlers: "handlers"
@@ -21,25 +21,25 @@ errors:
   _404: "errors/_404.tsx"
   _500: "errors/_500.tsx"
 `;
-        const file = new File("config/app.yml");
-        file.ensure();
-        file.write(fileContent);
-    }
+    const file = new File("config/app.yml");
+    file.ensure();
+    file.write(fileContent);
+  }
 
-    public parse(): void {
-        const file = new File("config/app.yml");
-        const parser = new YamlParser(file.read());
+  public parse(): void {
+    const file = new File("config/app.yml");
+    const parser = new YamlParser(file.read());
 
-        this.appConfig = parser.getData<AppConfigType>();
-    }
+    this.appConfig = parser.getData<AppConfigType>();
+  }
 
-    public getDirectories(): AppDirectoryType | null {
-        return this.appConfig?.directories || null;
-    }
+  public getDirectories(): AppDirectoryType | null {
+    return this.appConfig?.directories || null;
+  }
 
-    public getErrors(): AppConfigErrorType | null {
-        return this.appConfig?.errors || null;
-    }
+  public getErrors(): AppConfigErrorType | null {
+    return this.appConfig?.errors || null;
+  }
 }
 
 export const appConfig = new AppConfig();

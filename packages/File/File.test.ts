@@ -33,7 +33,10 @@ describe("File", () => {
   });
 
   it("directory", () => {
-    assertEquals(file.getDirectory().getPath(), `${tempDir}${Path.DS}${currentDir}`);
+    assertEquals(
+      file.getDirectory().getPath(),
+      `${tempDir}${Path.DS}${currentDir}`,
+    );
   });
 
   it("extension", () => {
