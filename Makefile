@@ -23,6 +23,10 @@ apps.ooneex.test:
 	cd apps/ooneex && deno task test
 apps.ooneex.test.watch:
 	cd apps/ooneex && deno task test:watch
+apps.ooneex.fmt:
+	cd apps/ooneex && deno task fmt
+apps.ooneex.lint:
+	cd apps/ooneex && deno task lint
 ### -> Ooneex app <- ###
 
 ### -> Packages <- ###
