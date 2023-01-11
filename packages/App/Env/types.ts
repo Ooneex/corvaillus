@@ -1,7 +1,7 @@
 import { DotEnvValueType } from "../../DotEnv/mod.ts";
 
 export type AppEnvVarsType = Record<
-  | "ENV"
+  | "APP_ENV"
   | "LOCALE"
   | "COUNTRY"
   | "VERSION"

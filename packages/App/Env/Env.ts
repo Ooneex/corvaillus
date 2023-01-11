@@ -7,7 +7,7 @@ export class Env implements IEnv {
   private dotEnv: DotEnv = new DotEnv();
 
   public generateEnvFile(): void {
-    let fileContent = `ENV=dev
+    let fileContent = `APP_ENV=dev
 LOCALE=en-us
 COUNTRY="United States"
 VERSION=1.0.0
@@ -40,11 +40,10 @@ PORT=8080
     await this.dotEnv.parse(".env.local");
     await this.dotEnv.parse(".env.test.local");
     await this.dotEnv.parse(".env.prod.local");
-    // Deno.env.set(`OONEEX_APP_ENV`, JSON.stringify(this.dotEnv.getData()));
   }
 
   public getAppEnv(): AppEnvType | null {
-    return this.dotEnv.get<AppEnvType>("ENV") ?? null;
+    return this.get<AppEnvType>("APP_ENV") ?? null;
   }
 
   public isDev(): boolean {
@@ -60,27 +59,27 @@ PORT=8080
   }
 
   public getCountry(): string | null {
-    return this.dotEnv.get<string>("COUNTRY") ?? null;
+    return this.get<string>("COUNTRY") ?? null;
   }
 
   public getLocale(): AppLocaleType | null {
-    return this.dotEnv.get<AppLocaleType>("LOCALE") ?? null;
+    return this.get<AppLocaleType>("LOCALE") ?? null;
   }
 
   public getPort(): number | null {
-    return this.dotEnv.get<number>("PORT") ?? null;
+    return this.get<number>("PORT") ?? null;
   }
 
   public getSecret(): string | null {
-    return this.dotEnv.get<string>("SECRET") ?? null;
+    return this.get<string>("SECRET") ?? null;
   }
 
   public getVersion(): AppVersionType | null {
-    return this.dotEnv.get<AppVersionType>("VERSION") ?? null;
+    return this.get<AppVersionType>("VERSION") ?? null;
   }
 
   public isDebug(): boolean {
-    return this.dotEnv.get<boolean>("DEBUG") === false;
+    return this.get<boolean>("DEBUG") === true;
   }
 
   public get<T>(key: Uppercase<string>): T | undefined {
